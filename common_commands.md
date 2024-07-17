@@ -169,7 +169,24 @@ echo $0
 # Terminate a job
 scancel jobid
 ```
+Shell scripts example usage:
+```bash
+#!/bin/bash -l                
+#SBATCH --nodes=1                
+#SBATCH --ntasks=1               
+#SBATCH --cpus-per-task=256
+#SBATCH --mem=950G              
+#SBATCH --time=8:00:00      
+#SBATCH --partition=regular     
+#SBATCH --job-name=sw2395      
+#SBATCH --mail-user=XX@cornell.edu 
+#SBATCH --mail-type=ALL     
+#SBATCH --output=slurm-%j.out  
+#SBATCH --error=slurm-%j.err 
 
+# Execute the script
+python codes/predict.py
+```
 
 ## CPU status
 ```bash
