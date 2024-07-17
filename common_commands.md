@@ -147,7 +147,7 @@ python setup.py install
 3D cellpose: python -m cellpose --Zstack 
 ```
 
-## SLURM
+## [SLURM](https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs)
 ```bash
 # Check status/job: 
 sacct
