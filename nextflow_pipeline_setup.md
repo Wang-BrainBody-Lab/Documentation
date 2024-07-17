@@ -44,7 +44,7 @@ Input the following command in your terminal, replace with your real Token and I
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID>
 ```
-To use screen, run the following shell script instead:
+To use screen, run the following shell script instead, replace the Token and ID with true value:
 
 ```bash
 #!/bin/bash
