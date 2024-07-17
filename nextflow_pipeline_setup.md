@@ -28,7 +28,7 @@ Tower Agent is distributed as a single executable file to simply download and ex
     
 3. (Optional) Move it into a folder that is in your path.
 
-### pQuickstart](https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart")
+### [Quickstart](https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart")
 
 Before running the Agent:
 
