@@ -41,10 +41,10 @@ The agent should always be running in order to accept incoming requests from Tow
 Input the following command in your terminal, replace with your real Token and ID.
 
 ```
-	export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
-	./tw-agent <YOUR CONNECTION ID>
+export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
+./tw-agent <YOUR CONNECTION ID>
 ```
-To use screen, Run the following shell script instead:
+To use screen, run the following shell script instead:
 
 ```bash
 #!/bin/bash
