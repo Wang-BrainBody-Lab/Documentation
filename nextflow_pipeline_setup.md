@@ -1,6 +1,6 @@
 - [Nextflow Tower Agent](#nextflow-tower-agent)
-  * [Installation[​](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")](#installation----https---docsseqeraio-platform-2310-agent-installation--direct-link-to-installation--)
-  * [Quickstart[​](https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart")](#quickstart----https---docsseqeraio-platform-2310-agent-quickstart--direct-link-to-quickstart--)
+  * [Installation​](#installation)
+  * [Quickstart](#quickstart)
 - [Run pipeline](#run-pipeline)
   * [1. Create Slurm Workload Manager](#1-create-slurm-workload-manager)
   * [2. Add Pipeline in Nextflow Workspace](#2-add-pipeline-in-nextflow-workspace)
@@ -10,7 +10,7 @@
 
 
 ## Nextflow Tower Agent
-### Installation[​](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")
+### [Installation](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")
 
 Tower Agent is distributed as a single executable file to simply download and execute.
 
@@ -28,7 +28,7 @@ Tower Agent is distributed as a single executable file to simply download and ex
     
 3. (Optional) Move it into a folder that is in your path.
 
-### Quickstart[​](https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart")
+### pQuickstart](https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart")
 
 Before running the Agent:
 
