@@ -11,7 +11,7 @@
   * [R](#r)
     + [Terminal](#terminal)
     + [Using RStudio Server](#using-rstudio-server)
-  * [[Git](https://git-scm.com/docs/gittutorial)](#-git--https---git-scmcom-docs-gittutorial-)
+  * [[Git](#-git--https---git-scmcom-docs-gittutorial-)
 
 # Content
 
