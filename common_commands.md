@@ -7,6 +7,8 @@
     + [Managing package using pip](#managing-package-using-pip)
   * [Software](#software)
   * [SLURM](#slurm)
+    + [Memory of SLURM jobs](#memory-of-slurm-jobs)
+    + [Docker containers in SLURM jobs](#docker-containers-in-slurm-jobs)
   * [CPU status](#cpu-status)
   * [R](#r)
     + [Terminal](#terminal)
@@ -187,6 +189,42 @@ Shell scripts example usage:
 # Execute the script
 python codes/predict.py
 ```
+
+### Memory of SLURM jobs
+If you don't how many memory you will use. To determine the memory needs of your job, follow these steps:
+
+1. **Run Jobs with Increasing Memory:**
+   - Submit jobs with gradually increasing memory.
+   - Use `squeue` to find the job ID of the first job that doesn't crash.
+
+2. **Check Memory Usage:**
+   - After the job finishes, run:
+     ```
+     sacct -j <jobID> --format=JobID,User,ReqMem,MaxRSS,MaxVMSize,NCPUS,Start,TotalCPU,UserCPU,Elapsed,State%20
+     ```
+   - Look at the `MaxRSS` column for the maximum memory used.
+
+3. **Adjust Memory Request:**
+   - If `MaxRSS` is close to the requested memory, the job may be using swap space, which slows it down.
+   - To prevent this, add `ulimit -v $(ulimit -m)` after the `#SBATCH` lines in your script to limit virtual memory to physical memory. This will cause the job to crash instead of thrashing if it exceeds physical memory, indicating more memory is needed.
+
+4. **Evaluate Resource Usage:**
+   - Use `get_slurm_usage.pl` to analyze resource usage over a period. For example:
+     ```
+     get_slurm_usage.pl mysrvr 01/20/20 3
+     ```
+   - Compare the requested memory (`avReqMem`) with the actual memory used (`avUsedMem`). If `avUsedMem` is much smaller, you’ve been requesting too much memory.
+
+
+### Docker containers in SLURM jobs
+
+Docker containers can be started from within a SLURM job using the docker1 command. However, such containers will not automatically obey the CPU, memory, or time allocations granted to a job by SLURM. Therefore, these limits have to be imposed explicitly on the container. For example, if a job is submitted with SLURM options --mem=42G -n 4, these restrictions must be passed on to the docker container via the docker1 command as follows:
+
+`docker1 run  --memory="40g" --cpus=4  <image_name> <command> `
+
+(note that the memory made available to the conatiner should be somewhat smaller than the amount requested from SLURM). If neither of the --mem or -n (same as --ntasks) SLURM options are explicitly specified at job submittion, the defaults are --mem=1G and -n 1, respectively, and these should be used in docker1 command above.
+
+ There is currently no tested way of imposing a time limit on docker containers.
 
 ## CPU status
 ```bash
