@@ -116,7 +116,7 @@ The nextflow tower agent is online now!
 
 1. **Download Example JSON File:**
     
-    - Download the `example_slurm.json` file from github, which contains necessary parameters.
+    - Download the `example_slurm.json` file from GitHub, which contains necessary parameters.
 2. **Edit JSON File:**
     
     - Open the `example_slurm.json` file and edit the parameters according to your requirements.
