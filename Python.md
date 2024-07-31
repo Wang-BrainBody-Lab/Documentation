@@ -1,5 +1,11 @@
-# Content
-
+- [Python](#python)
+  * [Installing Conda](#installing-conda)
+  * [Creating and Managing Environments with Conda](#creating-and-managing-environments-with-conda)
+  * [Managing Environments More Efficiently](#managing-environments-more-efficiently)
+  * [Example Workflow](#example-workflow)
+  * [Managing package using pip](#managing-package-using-pip)
+ 
+---
 ## Python
 
 https://packaging.python.org/en/latest/tutorials/installing-packages/
