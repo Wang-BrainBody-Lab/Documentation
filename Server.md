@@ -1,3 +1,17 @@
+- [Server and file access](#server-and-file-access)
+  * [FileZilla](#filezilla)
+  * [VSCode](#vscode)
+  * [Command Prompt](#command-prompt)
+- [SLURM](#slurm)
+  * [Interactive](#interactive)
+  * [Submit a single task using shell scripts](#submit-a-single-task-using-shell-scripts)
+  * [Memory of SLURM jobs](#memory-of-slurm-jobs)
+  * [Docker containers in SLURM jobs](#docker-containers-in-slurm-jobs)
+- [CPU status](#cpu-status)
+- [R](#r)
+  * [Terminal](#terminal)
+- [[Git](https://git-scm.com/docs/gittutorial)](#-git--https---git-scmcom-docs-gittutorial-)
+
 ## Server and file access
 
 **Note:** You must connect to Cornell campus network or use [CU VPN](https://it.cornell.edu/cuvpn#toc-who-can-us-Ikb_bdqc) to use server.
