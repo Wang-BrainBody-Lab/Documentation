@@ -10,8 +10,9 @@
 - [CPU status](#cpu-status)
 - [R](#r)
   * [Terminal](#terminal)
-- [[Git](https://git-scm.com/docs/gittutorial)](#-git--https---git-scmcom-docs-gittutorial-)
+- [Git](#git)
 
+---
 ## Server and file access
 
 **Note:** You must connect to Cornell campus network or use [CU VPN](https://it.cornell.edu/cuvpn#toc-who-can-us-Ikb_bdqc) to use server.
