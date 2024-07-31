@@ -12,7 +12,7 @@
 ## Nextflow Tower Agent
 ### [Installation](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")
 
-You can find more details at https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation"
+Click the "Installation" for more details.
 
 Tower Agent is distributed as a single executable file to simply download and execute.
 
@@ -32,7 +32,7 @@ Tower Agent is distributed as a single executable file to simply download and ex
 
 ### [Quickstart](https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart")
 
-You can find more details at https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart"
+Click the "Quickstart" for more details.
 
 Before running the Agent:
 
