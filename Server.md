@@ -53,9 +53,9 @@ You can find the detailed instruction [here](https://code.visualstudio.com/docs/
 ### Command Prompt
 
 For windows users, you can also access the server through Command Prompt (cmd) directly using:
-
+```
   SSH cbsuwsun.biohpc.cornell.edu
-
+```
 
 ## SLURM
 Official documentation from BioHPC is available at https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs
