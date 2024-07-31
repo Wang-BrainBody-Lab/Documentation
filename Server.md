@@ -19,8 +19,13 @@
 
 ### FileZilla
 FileZilla is a tool to manage your files in servers, you can use it for common file management like move, copy, download or upload.
+
 You can download it at https://filezilla-project.org/ for free.
+
+settings:
+
 Host: sftp://cbsuwsun.biohpc.cornell.edu
+
 Port: 22
 
 ### VSCode
