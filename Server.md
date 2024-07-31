@@ -1,0 +1,164 @@
+## Server and file access
+
+**Note:** You must connect to Cornell campus network or use [CU VPN](https://it.cornell.edu/cuvpn#toc-who-can-us-Ikb_bdqc) to use server.
+
+### FileZilla
+FileZilla is a tool to manage your files in servers, you can use it for common file management like move, copy, download or upload.
+You can download it at https://filezilla-project.org/ for free.
+Host: sftp://cbsuwsun.biohpc.cornell.edu
+Port: 22
+
+### VSCode
+Visual Studio Code (VSCode) is one of the most popular IDEs, and it has become a go-to tool for developers working with remote servers via SSH. Apart from common functionality of IDE, here are what it can do for SSH: SSH connectivity, file management, file editing, and extension support.
+
+You can download it for free at https://code.visualstudio.com/.
+
+To use VSCode's SSH functionality, follow these steps:
+
+1. Install the "Remote - SSH" extension in VSCode.
+2. Once installed, you'll see a new "Remote Explorer" icon in the sidebar.
+3. In the Remote Explorer, locate the SSH section and click the gear icon to open the SSH configuration file.
+4. Edit the `.ssh/config` file (note the forward slash) with your server details as follows:
+
+```
+Host cbsuwsun.biohpc.cornell.edu
+  HostName cbsuwsun.biohpc.cornell.edu
+  User YourUsername
+```
+
+Replace "YourUsername" with your actual username (e.g., sw2395).
+
+You can find the detailed instruction [here](https://code.visualstudio.com/docs/remote/ssh)
+
+### Command Prompt
+
+For windows users, you can also access the server through Command Prompt (cmd) directly using:
+
+  SSH cbsuwsun.biohpc.cornell.edu
+
+
+## SLURM
+Official documentation from BioHPC is available at https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs
+
+### Interactive
+```bash
+# Check status/job: 
+sacct
+sacct -j jobID
+scontrol show job jobID
+
+# Request for allocate resource:
+salloc --job-name=sw2395 --time=02:00:00 --ntasks=1 --cpus-per-task=256 --mem=700G
+
+# Once the resources are allocated, you'll can enter an interactive session where you can run commands using:
+srun --job-name=sw2395 --time=02:00:00 --ntasks=1 --cpus-per-task=256 --mem=700G --pty bash
+
+# This will print the default shell for your user, but not necessarily the shell you are currently using if you've changed it within the session.
+echo $SHELL
+
+# This command prints the name of the current shell or script.
+echo $0
+
+# Terminate a job
+scancel jobid
+```
+### Submit a single task using shell scripts
+```bash
+#!/bin/bash -l                
+#SBATCH --nodes=1                
+#SBATCH --ntasks=1               
+#SBATCH --cpus-per-task=256
+#SBATCH --mem=950G              
+#SBATCH --time=8:00:00      
+#SBATCH --partition=regular     
+#SBATCH --job-name=sw2395      
+#SBATCH --mail-user=XX@cornell.edu 
+#SBATCH --mail-type=ALL     
+#SBATCH --output=slurm-%j.out  
+#SBATCH --error=slurm-%j.err 
+
+# Execute the script
+python codes/predict.py
+```
+
+### Memory of SLURM jobs
+If you don't how many memory you will use. To determine the memory needs of your job, follow these steps:
+
+1. **Run Jobs with Increasing Memory:**
+   - Submit jobs with gradually increasing memory.
+   - Use `squeue` to find the job ID of the first job that doesn't crash.
+
+2. **Check Memory Usage:**
+   - After the job finishes, run:
+     ```
+     sacct -j <jobID> --format=JobID,User,ReqMem,MaxRSS,MaxVMSize,NCPUS,Start,TotalCPU,UserCPU,Elapsed,State%20
+     ```
+   - Look at the `MaxRSS` column for the maximum memory used.
+
+3. **Adjust Memory Request:**
+   - If `MaxRSS` is close to the requested memory, the job may be using swap space, which slows it down.
+   - To prevent this, add `ulimit -v $(ulimit -m)` after the `#SBATCH` lines in your script to limit virtual memory to physical memory. This will cause the job to crash instead of thrashing if it exceeds physical memory, indicating more memory is needed.
+
+4. **Evaluate Resource Usage:**
+   - Use `get_slurm_usage.pl` to analyze resource usage over a period. For example:
+     ```
+     get_slurm_usage.pl mysrvr 01/20/20 3
+     ```
+   - Compare the requested memory (`avReqMem`) with the actual memory used (`avUsedMem`). If `avUsedMem` is much smaller, you’ve been requesting too much memory.
+
+
+### Docker containers in SLURM jobs
+
+Docker containers can be started from within a SLURM job using the docker1 command. However, such containers will not automatically obey the CPU, memory, or time allocations granted to a job by SLURM. Therefore, these limits have to be imposed explicitly on the container. For example, if a job is submitted with SLURM options --mem=42G -n 4, these restrictions must be passed on to the docker container via the docker1 command as follows:
+
+`docker1 run  --memory="40g" --cpus=4  <image_name> <command> `
+
+(note that the memory made available to the conatiner should be somewhat smaller than the amount requested from SLURM). If neither of the --mem or -n (same as --ntasks) SLURM options are explicitly specified at job submittion, the defaults are --mem=1G and -n 1, respectively, and these should be used in docker1 command above.
+
+ There is currently no tested way of imposing a time limit on docker containers.
+
+## CPU status
+```bash
+# View real-time system resource usage
+top/htop
+
+# View CPU information
+lscpu
+
+# View memory usage
+free -h
+
+# View the number of processing units
+nproc
+```
+
+## R
+### Terminal
+`R --version`
+
+Install renv in your project:
+
+`install.packages("renv")`
+
+Initialize renv in your project directory:
+
+`renv::init()`
+
+You can run R scripts directly in the terminal. For example, to run a script called my_script.R:
+
+`Rscript my_script.R`
+
+To install R packages, you can use R's package management system. For example:
+
+`install.packages("ggplot2")`
+
+## [Git](https://git-scm.com/docs/gittutorial)
+```
+git clone
+git status
+git add
+git add --all
+git commit -m 
+git push
+git merge
+```
