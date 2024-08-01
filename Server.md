@@ -2,6 +2,7 @@
   * [FileZilla](#filezilla)
   * [VSCode](#vscode)
   * [Command Prompt](#command-prompt)
+  * [Mount](#mount)
 - [SLURM](#slurm)
   * [Interactive](#interactive)
   * [Submit a single task using shell scripts](#submit-a-single-task-using-shell-scripts)
@@ -56,6 +57,19 @@ For windows users, you can also access the server through Command Prompt (cmd) d
 ```
   SSH cbsuwsun.biohpc.cornell.edu
 ```
+
+### Mount
+
+for Windows 10 (and above) users, you can also choose to mount the server's directory to your local computer. In this way, you can open/visualize server's files locally. How to set up:
+
+1. In `File Explorer` click on `This PC` , select `Computer` at the top left of the window,
+then click on `Map network drive`.
+2. Choose the Drive letter and enter the server address for the folder that you wish to map:
+   \\cbsuwsun.biohpc.cornell.edu\storage (apart from storage, you can also mount docker/local_data/workdir)
+3. When prompted for your network credentials, enter BioHPC\NetId as your user name,
+and use your BioHPC password.
+4. If successful, you should find the new network location under `This PC` .
+
 
 ## SLURM
 Official documentation from BioHPC is available at https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs
