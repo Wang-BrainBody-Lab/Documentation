@@ -68,9 +68,10 @@ then click on `Map network drive`.
 ```
 \\cbsuwsun.biohpc.cornell.edu\storage (apart from storage, you can also mount docker/local_data/workdir)
 ```
-3. When prompted for your network credentials, enter BioHPC\NetId as your user name,
+3. Make sure that the check box for `Connect using different credentials` is checked, then click `Finish`
+4. When prompted for your network credentials, enter BioHPC\NetId as your user name,
 and use your BioHPC password.
-4. If successful, you should find the new network location under `This PC` .
+5. If successful, you should find the new network location under `This PC` .
 
 
 ## SLURM
