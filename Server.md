@@ -98,7 +98,11 @@ echo $0
 
 # Terminate a job
 scancel jobid
+
+# Cancel all jobs by a user
+scancel -u <my_user_name>
 ```
+
 ### Submit a single task using shell scripts
 ```bash
 #!/bin/bash -l                
