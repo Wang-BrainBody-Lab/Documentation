@@ -6,6 +6,7 @@
 - [SLURM](#slurm)
   * [Interactive](#interactive)
   * [Submit a single task using shell scripts](#submit-a-single-task-using-shell-scripts)
+  * [Interactive SCREEN Session](#interactive-screen-session)
   * [Memory of SLURM jobs](#memory-of-slurm-jobs)
   * [Docker containers in SLURM jobs](#docker-containers-in-slurm-jobs)
 - [CPU status](#cpu-status)
