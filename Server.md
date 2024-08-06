@@ -83,6 +83,7 @@ Official documentation from BioHPC is available at https://biohpc.cornell.edu/la
 sacct
 sacct -j jobID
 scontrol show job jobID
+squeue
 
 # Request for allocate resource:
 salloc --job-name=sw2395 --time=02:00:00 --ntasks=1 --cpus-per-task=256 --mem=700G
