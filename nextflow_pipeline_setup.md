@@ -56,6 +56,7 @@ You can use `screen -r` to attach the SCREEN sessions, and detach from it at any
 
 - to see your screen sessions: `use screen -ls`
 - to quit any screen session: `screen -S <session ID> -X quit`
+- If you cancel the corresponding SLURM job, the screen session will also be terminated.
 
 ```bash
 #!/bin/bash
