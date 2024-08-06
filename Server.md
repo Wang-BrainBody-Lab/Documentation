@@ -103,7 +103,6 @@ scancel jobid
 # Cancel all jobs by a user
 scancel -u <my_user_name>
 ```
-
 ### Submit a single task using shell scripts
 ```bash
 #!/bin/bash -l                
@@ -122,6 +121,10 @@ scancel -u <my_user_name>
 # Execute the script
 python codes/predict.py
 ```
+### Interactive SCREEN Session
+`sbatch -N 1 <other_options>  /programs/bin/slurm_screen.sh`
+
+Use `screen -ls` to verify the SCREEN session has been started there. Attach to this session using `screen -r`. Within the session, you can start any number of shells you need and run any processes you need. All the processes together will share the CPUs and memory specified at job submision. 
 
 ### Memory of SLURM jobs
 If you don't how many memory you will use. To determine the memory needs of your job, follow these steps:
