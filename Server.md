@@ -131,6 +131,7 @@ sbatch -N 1 <other_options>  /programs/bin/slurm_screen.sh
 # E.g.
 sbatch -N 1 --ntasks=1 --time=48:00:00 --mem=4G --job-name=screen_job /programs/bin/slurm_screen.sh
 ```
+`/programs/bin/slurm_screen.sh` file is already there, you don't have to change it.
 
 Use `screen -ls` to verify the SCREEN session has been started there. Attach to this session using `screen -r`. Within the session, you can start any number of shells you need and run any processes you need. All the processes together will share the CPUs and memory specified at job submision. 
 
