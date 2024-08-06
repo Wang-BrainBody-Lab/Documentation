@@ -48,7 +48,7 @@ Input the following command in your terminal, replace with your real Token and I
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID> --work-dir= <YOUR WORK DIRECTORY>
 ```
-To use screen, run the following shell script instead, replace the Token and ID with true value:
+To use screen, run the following `screen_job.sh` script use `sbatch screen_job.sh`instead, replace the Token and ID with true value:
 
 ```bash
 #!/bin/bash
@@ -64,18 +64,31 @@ To use screen, run the following shell script instead, replace the Token and ID 
 # Load any necessary modules
 module load screen
 
+# Create a unique name for this screen session
+SCREEN_NAME="slurm_job_$SLURM_JOB_ID"
+
 # Start a detached screen session
-screen -dmS my_screen_session
+screen -dmS $SCREEN_NAME
 
 # Replace <YOUR TOKEN> and <YOUR CONNECTION ID> with actual values
 TOWER_ACCESS_TOKEN="<YOUR TOKEN>"
 CONNECTION_ID="<YOUR CONNECTION ID>"
 
-screen -S my_screen_session -X stuff "export TOWER_ACCESS_TOKEN=$TOWER_ACCESS_TOKEN\n"
-screen -S my_screen_session -X stuff "./tw-agent $CONNECTION_ID\n"
+# Send commands to the screen session
+screen -S $SCREEN_NAME -X stuff "export TOWER_ACCESS_TOKEN=$TOWER_ACCESS_TOKEN\n"
+screen -S $SCREEN_NAME -X stuff "./tw-agent $CONNECTION_ID\n"
 
 # Keep the screen session alive with an interactive bash shell
-screen -S my_screen_session -X stuff "/bin/bash\n"
+screen -S $SCREEN_NAME -X stuff "/bin/bash\n"
+
+# Print information about how to connect to this screen session
+echo "Screen session created: $SCREEN_NAME"
+echo "To connect to this session from a login node, use:"
+echo "srun --jobid $SLURM_JOB_ID --pty screen -r $SCREEN_NAME"
+
+# Wait for the screen session to finish
+screen -S $SCREEN_NAME -X colon "zombie kr^M"
+screen -S $SCREEN_NAME -X detach
 
 ```
 
