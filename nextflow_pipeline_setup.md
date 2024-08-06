@@ -60,28 +60,14 @@ You can use `screen -r` to attach the SCREEN sessions, and detach from it at any
 ```bash
 #!/bin/bash
 #SBATCH --job-name=screen_job
-#SBATCH --output=screen_job_%j.out
-#SBATCH --error=screen_job_%j.err
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --time=48:00:00
 #SBATCH --mem=4G
 #SBATCH --partition=regular
 
-# Check if screen is available
-if ! command -v screen &> /dev/null
-then
-    echo "screen could not be found. Please ensure it's installed on your system."
-    exit 1
-fi
-
 # Create a unique name for this screen session
 SCREEN_NAME="slurm_job_$SLURM_JOB_ID"
-
-# Print information about how to connect to this screen session
-echo "Screen session created: $SCREEN_NAME"
-echo "To connect to this session from a login node, use:"
-echo "srun --jobid $SLURM_JOB_ID --pty screen -r $SCREEN_NAME"
 
 # Start a detached screen session
 screen -wipe
@@ -93,8 +79,8 @@ send_command() {
 }
 
 # Replace <YOUR TOKEN> and <YOUR CONNECTION ID> with actual values
-TOWER_ACCESS_TOKEN=eyJ0aWQiOiA5ODQxfS5mZTlmZDJiMmQwMzQwMjMyZjZiN2QzYTI3ZmIxZDlmNDQxN2ZjOTFm
-CONNECTION_ID=51e212cc-af97-4c52-b5da-3ae7f0f4ca37
+TOWER_ACCESS_TOKEN=<YOUR TOKEN>
+CONNECTION_ID=<YOUR CONNECTION ID>
 
 # Send commands to the screen session
 send_command "export TOWER_ACCESS_TOKEN=$TOWER_ACCESS_TOKEN\n"
