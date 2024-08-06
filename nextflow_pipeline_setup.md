@@ -52,7 +52,7 @@ To use screen, run the following `screen_job.sh` script using `sbatch screen_job
 
 After creating `screen_job.sh`, please use `chmod +x screen_job.sh` to make it executable.
 
-You can use `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
+You can use `screen -r` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
 
 - to see your screen sessions: `use screen -ls`
 - to quit any screen session: `screen -S <session ID> -X quit`
@@ -93,12 +93,12 @@ send_command() {
 }
 
 # Replace <YOUR TOKEN> and <YOUR CONNECTION ID> with actual values
-TOWER_ACCESS_TOKEN="<YOUR TOKEN>"
-CONNECTION_ID="<YOUR CONNECTION ID>"
+TOWER_ACCESS_TOKEN=eyJ0aWQiOiA5ODQxfS5mZTlmZDJiMmQwMzQwMjMyZjZiN2QzYTI3ZmIxZDlmNDQxN2ZjOTFm
+CONNECTION_ID=51e212cc-af97-4c52-b5da-3ae7f0f4ca37
 
 # Send commands to the screen session
 send_command "export TOWER_ACCESS_TOKEN=$TOWER_ACCESS_TOKEN\n"
-send_command "./tw-agent $CONNECTION_ID\n --work-dir=./work"
+send_command "./tw-agent \"$CONNECTION_ID\" --work-dir=./work\n"
 
 # Keep the SLURM job running until the time limit is reached or the screen session ends
 while screen -list | grep -q $SCREEN_NAME
