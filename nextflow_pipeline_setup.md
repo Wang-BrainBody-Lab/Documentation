@@ -48,7 +48,7 @@ Input the following command in your terminal, replace with your real Token and I
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID> --work-dir= <YOUR WORK DIRECTORY>
 ```
-To use screen, run the following `screen_job.sh` script use `sbatch screen_job.sh`instead, replace the Token and ID with true value. You can use `srun --jobid $SLURM_JOB_ID --pty screen -r $SCREEN_NAME` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
+To use screen, run the following `screen_job.sh` script use `sbatch screen_job.sh`instead, replace the Token and ID with true value. You can use `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
 
 ```bash
 #!/bin/bash
@@ -98,6 +98,7 @@ do
     sleep 360
 done
 
+echo "Screen session ended. SLURM job complete."
 ```
 
 The nextflow tower agent is online now!
