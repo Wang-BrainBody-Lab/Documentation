@@ -83,7 +83,9 @@ Official documentation from BioHPC is available at https://biohpc.cornell.edu/la
 # Check status/job: 
 sacct
 sacct -j jobID
+# Check the details of a job
 scontrol show job jobID
+# Check current job
 squeue
 
 # Request for allocate resource:
