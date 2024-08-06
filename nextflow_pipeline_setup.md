@@ -1,11 +1,12 @@
 - [Nextflow Tower Agent](#nextflow-tower-agent)
-  * [Installation​](#installation)
+  * [Installation](#installation)
   * [Quickstart](#quickstart)
-- [Run pipeline](#run-pipeline)
+- [Run pipeline from Seqera](#run-pipeline-from-seqera)
   * [1. Create Slurm Workload Manager](#1-create-slurm-workload-manager)
   * [2. Add Pipeline in Nextflow Workspace](#2-add-pipeline-in-nextflow-workspace)
   * [3. Configure Advanced Options](#3-configure-advanced-options)
   * [4. Configure Pipeline Parameters](#4-configure-pipeline-parameters)
+- [Run pipeline locally](#run-pipeline-locally)
  
 
 
@@ -99,7 +100,7 @@ echo "Screen session ended. SLURM job complete."
 
 The nextflow tower agent is online now!
 
-## Run pipeline
+## Run pipeline from Seqera
 ### 1. Create Slurm Workload Manager
 
 
@@ -148,4 +149,13 @@ The nextflow tower agent is online now!
 4. **Customize Other Parameters:**
     
     - After uploading the JSON file, customize any additional parameters as needed.
+
+## Run pipeline locally
+TOWER_WORKSPACE_ID can be found [here](https://cloud.seqera.io/orgs/Wang_Lab/workspaces)
+```
+export TOWER_ACCESS_TOKEN=<YOUR TOKEN>
+
+export TOWER_WORKSPACE_ID=000000000000000
+```
+Run your Nextflow workflows as usual with the addition of the -with-tower command (refer to https://github.com/Wang-BrainBody-Lab/EASI-FISH).
 
