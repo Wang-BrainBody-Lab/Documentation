@@ -48,7 +48,10 @@ Input the following command in your terminal, replace with your real Token and I
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID> --work-dir= <YOUR WORK DIRECTORY>
 ```
-To use screen, run the following `screen_job.sh` script use `sbatch screen_job.sh`instead, replace the Token and ID with true value. You can use `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
+To use screen, run the following `screen_job.sh` script (After creating this file, please use `chmod +x screen_job.sh` to make it executable.) use `sbatch screen_job.sh`instead, replace the Token and ID with true value. You can use `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
+
+- to see your screen sessions: `use screen -ls`
+- to quit any screen session: `screen -S <session ID> -X quit`
 
 ```bash
 #!/bin/bash
@@ -77,6 +80,7 @@ echo "To connect to this session from a login node, use:"
 echo "srun --jobid $SLURM_JOB_ID --pty screen -r $SCREEN_NAME"
 
 # Start a detached screen session
+screen -wipe
 screen -dmS $SCREEN_NAME
 
 # Function to send commands to the screen session
@@ -90,7 +94,7 @@ CONNECTION_ID="<YOUR CONNECTION ID>"
 
 # Send commands to the screen session
 send_command "export TOWER_ACCESS_TOKEN=$TOWER_ACCESS_TOKEN\n"
-send_command "./tw-agent $CONNECTION_ID\n"
+send_command "./tw-agent $CONNECTION_ID\n --work-dir=./work"
 
 # Keep the SLURM job running until the time limit is reached or the screen session ends
 while screen -list | grep -q $SCREEN_NAME
