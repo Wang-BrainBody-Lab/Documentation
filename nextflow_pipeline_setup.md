@@ -54,9 +54,10 @@ After creating `screen_job.sh`, please use `chmod +x screen_job.sh` to make it e
 
 You can use `screen -r` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
 
-- to see your screen sessions: `use screen -ls`
-- to quit any screen session: `screen -S <session ID> -X quit`
-- If you cancel the corresponding SLURM job, the screen session will also be terminated.
+- To see your screen sessions: `use screen -ls`
+- To quit any screen session: `screen -S <session ID> -X quit`
+- If you cancel the corresponding SLURM job using `scancel $SLURM_JOB_ID`, the screen session will also be terminated.
+- So once you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
 
 ```bash
 #!/bin/bash
