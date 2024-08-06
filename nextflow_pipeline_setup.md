@@ -48,7 +48,11 @@ Input the following command in your terminal, replace with your real Token and I
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID> --work-dir= <YOUR WORK DIRECTORY>
 ```
-To use screen, run the following `screen_job.sh` script (After creating this file, please use `chmod +x screen_job.sh` to make it executable.) use `sbatch screen_job.sh`instead, replace the Token and ID with true value. You can use `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
+To use screen, run the following `screen_job.sh` script using `sbatch screen_job.sh`instead, replace the Token and ID with true value.
+
+After creating `screen_job.sh`, please use `chmod +x screen_job.sh` to make it executable.
+
+You can use `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
 
 - to see your screen sessions: `use screen -ls`
 - to quit any screen session: `screen -S <session ID> -X quit`
