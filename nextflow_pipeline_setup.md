@@ -1,3 +1,4 @@
+- [Nextflow](#nextflow)
 - [Nextflow Tower Agent](#nextflow-tower-agent)
   * [Installation](#installation)
   * [Quickstart](#quickstart)
@@ -8,7 +9,23 @@
   * [4. Configure Pipeline Parameters](#4-configure-pipeline-parameters)
 - [Run pipeline locally](#run-pipeline-locally)
  
+## Nextflow
+Before using the tower agent, please download and set up the nextflow first:
 
+1. Download the [nextflow](https://www.nextflow.io/docs/latest/install.html) by `curl -s https://get.nextflow.io | bash`
+2. Make it executable: `chmod +x nextflow`
+3. Move it into a folder that is in your $PATH, or put the current folder in `~/.bashrc` by:
+   ```
+   nano ~/.bashrc
+   export PATH="YourFolderPath:$PATH"
+   source ~/.bashrc
+   ```
+4. You may also need to add the following to the `~/.bashrc` for Singularity to work.
+   ```
+   export APPTAINER_TMPDIR=YourPath/temp/tmpdir
+   export APPTAINER_CACHEDIR==YourPath/temp/cachedir
+   ```
+   **Note:** You may need to manually create the files before running the pipeline.
 
 ## Nextflow Tower Agent
 ### [Installation](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")
@@ -29,7 +46,6 @@ Tower Agent is distributed as a single executable file to simply download and ex
     chmod +x ./tw-agent
     ```
     
-3. (Optional) Move it into a folder that is in your path.
 
 ### [Quickstart](https://docs.seqera.io/platform/23.1.0/agent#quickstart "Direct link to Quickstart")
 
