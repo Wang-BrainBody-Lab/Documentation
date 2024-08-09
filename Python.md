@@ -29,7 +29,7 @@ You can download and install Miniconda from [here](https://docs.conda.io/en/late
 
 1. **Create a New Environment**:
    ```bash
-   conda create --name project1 python=3.8
+   conda create --name project1 python=3.11
    ```
 
 2. **Activate an Environment**:
