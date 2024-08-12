@@ -25,6 +25,8 @@ If you don't already have Conda installed, you can install it by downloading and
 
 You can download and install Miniconda from [here](https://docs.conda.io/en/latest/miniconda.html).
 
+**Note:** when you set up the conda, modify the `~/.bashrc` file to add  `export PATH="/home/YourUserName/miniconda3/bin:$PATH"`, and run the init command in the website.
+
 ### Creating and Managing Environments with Conda
 
 1. **Create a New Environment**:
