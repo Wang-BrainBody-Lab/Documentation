@@ -23,7 +23,7 @@ Before using the tower agent, please download and set up the nextflow first:
 4. You may also need to add the following to the `~/.bashrc` for Singularity to work.
    ```
    export APPTAINER_TMPDIR=YourPath/temp/tmpdir
-   export APPTAINER_CACHEDIR==YourPath/temp/cachedir
+   export APPTAINER_CACHEDIR=YourPath/temp/cachedir
    ```
    **Note:** You may need to manually create the files before running the pipeline.
 
