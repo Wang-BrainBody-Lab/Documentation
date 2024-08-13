@@ -72,9 +72,9 @@ To use screen, run the following `screen_job.sh` script using `sbatch screen_job
 
 After creating `screen_job.sh`, please use `chmod +x screen_job.sh` to make it executable.
 
-You can use `screen -r` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
+You can use `screen -r` or `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
 
-- To see your screen sessions: `use screen -ls`
+- To see your screen sessions: `screen -ls`
 - To quit any screen session: `screen -S <session ID> -X quit`
 - If you cancel the corresponding SLURM job using `scancel $SLURM_JOB_ID`, the screen session will also be terminated.
 - So once you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
