@@ -5,9 +5,9 @@
   * [VSCode](#vscode)
 - [SLURM](#slurm)
   * [Interactive](#interactive)
-  * [Submit a single task using shell scripts](#submit-a-single-task-using-shell-scripts)
+  * [Submit a job using shell scripts](#submit-a-job-using-shell-scripts)
   * [Interactive SCREEN Session](#interactive-screen-session)
-  * [Memory of SLURM jobs](#memory-of-slurm-jobs)
+  * [Memory usage of SLURM jobs](#memory-usage-of-SLURM-jobs)
   * [Docker containers in SLURM jobs](#docker-containers-in-slurm-jobs)
 - [CPU status](#cpu-status)
 - [R](#r)
@@ -19,15 +19,16 @@
 There are several ways to access the server. For file management, we use FileZilla or directly mount the server. For running commands, we use Command Prompt or VSCode. 
 **Note:** You must connect to Cornell campus network or use [CU VPN](https://it.cornell.edu/cuvpn#toc-who-can-us-Ikb_bdqc) to use server.
 
-1. ### FileZilla
+### FileZilla
 FileZilla is a tool to manage files on the servers, you can use it for common file management, such as move, copy, download or upload.
 
 You can download [Filezilla](https://filezilla-project.org/) for free.
-File transfer settings with FileZilla:
--Host: sftp://cbsuwsun.biohpc.cornell.edu
--Port: 22
 
-2. ### Mount the server
+File transfer settings with FileZilla:
+- Host: sftp://cbsuwsun.biohpc.cornell.edu
+- Port: 22
+
+### Mount the server
 
 for Windows 10 (and above) users, you can also choose to mount the server's directory to your local computer. In this way, you can open/visualize server's files locally. How to set up:
 
@@ -42,7 +43,7 @@ then click on `Map network drive`.
 and use your BioHPC password.
 - If successful, you should find the new network location under `This PC` .
 
-3. ### Command Prompt
+### Command Prompt
 For windows users, you can access the server through Command Prompt (cmd) directly using:
 ```
   SSH cbsuwsun.biohpc.cornell.edu
@@ -52,7 +53,7 @@ For MacOS and Linux users, you can access the server through the terminal direct
 ```
   ssh netID@cbsuwsun.biohpc.cornell.edu
 ```
-4. ### VSCode
+### VSCode
 Visual Studio Code (VSCode) is one of the most popular IDEs, and it has become a go-to tool for developers working with remote servers via SSH. Apart from common functionality of IDE, here are what it can do for SSH: SSH connectivity, file management, file editing, and extension support.
 
 You can download [VSCode](https://code.visualstudio.com/) for free.
@@ -73,39 +74,49 @@ Replace "YourUsername" with your Cornell netID (e.g., sw2395).
 
 You can find the detailed instruction [here](https://code.visualstudio.com/docs/remote/ssh)
 
-
 ## SLURM
-Official documentation from BioHPC is available at https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs
+Official documentation from BioHPC is available [here](https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs). 
 
 ### Interactive
+
+**Check status/job** 
 ```bash
-# Check status/job: 
 sacct
 sacct -j jobID
-# Check the details of a job
+```
+**Check the details of a job**
+```bash
 scontrol show job jobID
-# Check current job
+```
+**Check current jobs**
+```bash
 squeue
-
-# Request for allocate resource:
+```
+**Request for allocate resource**
+```bash
 salloc --job-name=sw2395 --time=02:00:00 --ntasks=1 --cpus-per-task=256 --mem=700G
-
-# Once the resources are allocated, you'll can enter an interactive session where you can run commands using:
+```
+**Once the resources are allocated, you can start an interactive session**
+```bash
 srun --job-name=sw2395 --time=02:00:00 --ntasks=1 --cpus-per-task=256 --mem=700G --pty bash
-
-# This will print the default shell for your user, but not necessarily the shell you are currently using if you've changed it within the session.
+```
+**Print the default shell for your user (not necessarily the shell you are currently using if you've changed it within the session)**
+```bash
 echo $SHELL
-
-# This command prints the name of the current shell or script.
+```
+**Prints the name of the current shell or script**
+```bash
 echo $0
-
-# Terminate a job
+```
+**Terminate a job**
+```bash
 scancel jobid
-
-# Cancel all jobs by a user
+```
+**Cancel all jobs by a user**
+```bash
 scancel -u <my_user_name>
 ```
-### Submit a single task using shell scripts
+### Submit a job using shell scripts
 ```bash
 #!/bin/bash -l                
 #SBATCH --nodes=1                
@@ -124,7 +135,7 @@ scancel -u <my_user_name>
 python codes/predict.py
 ```
 ### Interactive SCREEN Session
-```
+```bash
 sbatch -N 1 <other_options>  /programs/bin/slurm_screen.sh
 
 # E.g.
@@ -134,8 +145,8 @@ sbatch -N 1 --ntasks=1 --time=48:00:00 --mem=4G --job-name=screen_job /programs/
 
 Use `screen -ls` to verify the SCREEN session has been started there. Attach to this session using `screen -r`. Within the session, you can start any number of shells you need and run any processes you need. All the processes together will share the CPUs and memory specified at job submision. 
 
-### Memory of SLURM jobs
-If you don't how many memory you will use. To determine the memory needs of your job, follow these steps:
+### Memory usage of SLURM jobs
+If you don't know how much memory you will use. You can determine the memory needs of your job with the following steps:
 
 1. **Run Jobs with Increasing Memory:**
    - Submit jobs with gradually increasing memory.
