@@ -1,7 +1,6 @@
 - [Python](#python)
   * [Installing Conda](#installing-conda)
   * [Creating and Managing Environments with Conda](#creating-and-managing-environments-with-conda)
-  * [Managing Environments More Efficiently](#managing-environments-more-efficiently)
   * [Example Workflow](#example-workflow)
   * [Managing package using pip](#managing-package-using-pip)
  
@@ -68,21 +67,19 @@ You can download and install Miniconda from [here](https://docs.conda.io/en/late
    conda env create --file environment.yml
    ```
 
-### Managing Environments More Efficiently
-
-1. **Cloning an Environment**:
+9. **Cloning an Environment**:
    You can clone an existing environment to create a new one with the same packages.
    ```bash
    conda create --name project2 --clone project1
    ```
 
-2. **Updating an Environment**:
+10. **Updating an Environment**:
    Update all packages in the current environment to the latest versions.
    ```bash
    conda update --all
    ```
 
-3. **Specifying Channels**:
+11. **Specifying Channels**:
    Sometimes, certain packages are available in specific channels. You can specify channels when installing packages.
    ```bash
    conda install -c conda-forge somepackage
