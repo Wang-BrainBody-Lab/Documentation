@@ -18,11 +18,9 @@ By default, when you install Conda on a Linux server, it's typically installed f
 If you don't already have Conda installed, you can install it by downloading and installing Anaconda or Miniconda:
 
 - **Anaconda**: A full distribution with many pre-installed packages.
-- **Miniconda**: A minimal installation, allowing you to install only the packages you need.
+- **Miniconda**: A minimal installation, allowing you to install only the packages you need. You can download and install Miniconda from [here](https://docs.conda.io/en/latest/miniconda.html).
 
-You can download and install Miniconda from [here](https://docs.conda.io/en/latest/miniconda.html).
-
-**Note:** when you set up the conda, modify the `~/.bashrc` file to add  `export PATH="/home/YourUserName/miniconda3/bin:$PATH"`, and run the init command in the website.
+**Note:** When setting up conda on the server, modify the `~/.bashrc` file to add  `export PATH="/home/YourUserName/miniconda3/bin:$PATH"`, and run the init command `source ~/miniconda3/bin/activate` and `conda init --all`.
 
 ### Creating and Managing Environments with Conda
 
