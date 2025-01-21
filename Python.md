@@ -6,9 +6,7 @@
   * [Managing package using pip](#managing-package-using-pip)
  
 ---
-## Python
-
-https://packaging.python.org/en/latest/tutorials/installing-packages/
+## [Python](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 
 ### Installing Conda
 
