@@ -151,7 +151,7 @@ rm /home/file1.tif
 rm -r /home/folder1/
 ```
 4. **Install a package after GitHub download**
-(Before setting up the package, enter the directory where the setup.py is first)
+(Before installing, make sure setup.py is in the current directory)
 ```bash
 python setup.py install
 ```
