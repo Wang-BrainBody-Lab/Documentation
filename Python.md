@@ -3,7 +3,7 @@
   * [Creating and Managing Environments with Conda](#creating-and-managing-environments-with-conda)
   * [Example Workflow](#example-workflow)
   * [Managing package using pip](#managing-package-using-pip)
- 
+  * [Other useful commands](#other-useful-commands)
 ---
 ## [Python](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 
@@ -115,15 +115,15 @@ Then run the init command `source ~/miniconda3/bin/activate` and `conda init --a
 
 ### Managing package using pip
 
-# Install package using pip
+**Install package using pip**
 ```bash
 python3 -m pip install "SomeProject"
 ```
-# Update packages using pip
+**Update packages using pip**
 ```bash
 python3 -m pip install --upgrade pip setuptools wheel
 ```
-# Uninstall packages using pip
+**Uninstall packages using pip**
 ```bash
 pip uninstall package
 ```
@@ -138,19 +138,19 @@ pip uninstall package
 `mv file path` move file to a different directory
 `rm file` delete file
 
-# Copy files
+**Copy files**
 ```bash
 cp -r /home/packageA/. /home/cp/packageB/
 ```
-# Remove file
+**Remove file**
 ```bash
 rm /home/file1.tif
 ```
-# Remove folder
+**Remove folder**
 ```bash
 rm -r /home/folder1/
 ```
-# Install a package after GitHub download
+**Install a package after GitHub download**
 (Before setting up the package, enter the directory where the setup.py is first)
 ```bash
 python setup.py install
