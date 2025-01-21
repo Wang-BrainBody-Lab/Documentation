@@ -1,8 +1,8 @@
 - [Server and file access](#server-and-file-access)
   * [FileZilla](#filezilla)
-  * [VSCode](#vscode)
+  * [Mount the server](#mount-the-server)
   * [Command Prompt](#command-prompt)
-  * [Mount](#mount)
+  * [VSCode](#vscode)
 - [SLURM](#slurm)
   * [Interactive](#interactive)
   * [Submit a single task using shell scripts](#submit-a-single-task-using-shell-scripts)
@@ -16,24 +16,46 @@
 
 ---
 ## Server and file access
-
+There are several ways to access the server. For file management, we use FileZilla or directly mount the server. For running commands, we use Command Prompt or VSCode. 
 **Note:** You must connect to Cornell campus network or use [CU VPN](https://it.cornell.edu/cuvpn#toc-who-can-us-Ikb_bdqc) to use server.
 
-### FileZilla
-FileZilla is a tool to manage your files in servers, you can use it for common file management like move, copy, download or upload.
+1. ### FileZilla
+FileZilla is a tool to manage files on the servers, you can use it for common file management, such as move, copy, download or upload.
 
-You can download it at https://filezilla-project.org/ for free.
+You can download [Filezilla](https://filezilla-project.org/) for free.
+File transfer settings with FileZilla:
+-Host: sftp://cbsuwsun.biohpc.cornell.edu
+-Port: 22
 
-settings:
+2. ### Mount the server
 
-Host: sftp://cbsuwsun.biohpc.cornell.edu
+for Windows 10 (and above) users, you can also choose to mount the server's directory to your local computer. In this way, you can open/visualize server's files locally. How to set up:
 
-Port: 22
+- In `File Explorer` click on `This PC` , select `Computer` at the top left of the window,
+then click on `Map network drive`.
+- Choose the Drive letter and enter the server address for the folder that you wish to map:
+```
+\\cbsuwsun.biohpc.cornell.edu\storage (apart from storage, you can also mount docker/local_data/workdir)
+```
+- Make sure that the check box for `Connect using different credentials` is checked, then click `Finish`
+- When prompted for your network credentials, enter BioHPC\NetId as your user name,
+and use your BioHPC password.
+- If successful, you should find the new network location under `This PC` .
 
-### VSCode
+3. ### Command Prompt
+For windows users, you can access the server through Command Prompt (cmd) directly using:
+```
+  SSH cbsuwsun.biohpc.cornell.edu
+```
+
+For MacOS and Linux users, you can access the server through the terminal directly using:
+```
+  ssh netID@cbsuwsun.biohpc.cornell.edu
+```
+4. ### VSCode
 Visual Studio Code (VSCode) is one of the most popular IDEs, and it has become a go-to tool for developers working with remote servers via SSH. Apart from common functionality of IDE, here are what it can do for SSH: SSH connectivity, file management, file editing, and extension support.
 
-You can download it for free at https://code.visualstudio.com/.
+You can download [VSCode](https://code.visualstudio.com/) for free.
 
 To use VSCode's SSH functionality, follow these steps:
 
@@ -47,32 +69,9 @@ Host cbsuwsun.biohpc.cornell.edu
   HostName cbsuwsun.biohpc.cornell.edu
   User YourUsername
 ```
-
-Replace "YourUsername" with your actual username (e.g., sw2395).
+Replace "YourUsername" with your Cornell netID (e.g., sw2395).
 
 You can find the detailed instruction [here](https://code.visualstudio.com/docs/remote/ssh)
-
-### Command Prompt
-
-For windows users, you can also access the server through Command Prompt (cmd) directly using:
-```
-  SSH cbsuwsun.biohpc.cornell.edu
-```
-
-### Mount
-
-for Windows 10 (and above) users, you can also choose to mount the server's directory to your local computer. In this way, you can open/visualize server's files locally. How to set up:
-
-1. In `File Explorer` click on `This PC` , select `Computer` at the top left of the window,
-then click on `Map network drive`.
-2. Choose the Drive letter and enter the server address for the folder that you wish to map:
-```
-\\cbsuwsun.biohpc.cornell.edu\storage (apart from storage, you can also mount docker/local_data/workdir)
-```
-3. Make sure that the check box for `Connect using different credentials` is checked, then click `Finish`
-4. When prompted for your network credentials, enter BioHPC\NetId as your user name,
-and use your BioHPC password.
-5. If successful, you should find the new network location under `This PC` .
 
 
 ## SLURM
