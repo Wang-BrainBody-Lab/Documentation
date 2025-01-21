@@ -20,7 +20,8 @@ If you don't already have Conda installed, you can install it by downloading and
 - **Anaconda**: A full distribution with many pre-installed packages.
 - **Miniconda**: A minimal installation, allowing you to install only the packages you need. You can download and install Miniconda from [here](https://docs.conda.io/en/latest/miniconda.html).
 
-**Note:** When setting up conda on the server, modify the `~/.bashrc` file to add  `export PATH="/home/YourUserName/miniconda3/bin:$PATH"`, and run the init command `source ~/miniconda3/bin/activate` and `conda init --all`.
+**Note:** When setting up conda on the server, add  `export PATH="/home/YourUserName/miniconda3/bin:$PATH"`to the `~/.bashrc` file. 
+Then run the init command `source ~/miniconda3/bin/activate` and `conda init --all`.
 
 ### Creating and Managing Environments with Conda
 
@@ -49,18 +50,18 @@ If you don't already have Conda installed, you can install it by downloading and
    conda remove --name project1 --all
    ```
 
-6. **Install Packages in an Environment**:
+6. **Install Packages in an Environment with conda**:
    ```bash
    conda install --name project1 numpy pandas
    ```
 
-7. **Export an Environment**:
-   This is useful for sharing environments or for reproducing them on different systems.
+7. **Export an Environment as yml file**:
+   This is useful for sharing environments or for reproducing them on a different system.
    ```bash
    conda env export --name project1 > environment.yml
    ```
 
-8. **Create an Environment from an Environment File**:
+8. **Create an Environment from an yml file**:
    ```bash
    conda env create --file environment.yml
    ```
@@ -113,20 +114,44 @@ If you don't already have Conda installed, you can install it by downloading and
    ```
 
 ### Managing package using pip
-```bash
+
 # Install package using pip
-python3 -m pip install --upgrade pip setuptools wheel
+```bash
 python3 -m pip install "SomeProject"
+```
+# Update packages using pip
+```bash
+python3 -m pip install --upgrade pip setuptools wheel
+```
+# Uninstall packages using pip
+```bash
+pip uninstall package
+```
+
+### Other useful commands
+`pwd` current working directory
+`ls` list every file in the current directory
+`ls -la` list every file and file details (rwg permissions, file size, etc.) in the current directory 
+`cd dir_name` change directory
+`mkdir dir_name` create a folder named "dir_name"
+`cp file file_cp` copy file
+`mv file path` move file to a different directory
+`rm file` delete file
 
 # Copy files
+```bash
 cp -r /home/packageA/. /home/cp/packageB/
-
+```
+# Remove file
+```bash
+rm /home/file1.tif
+```
+# Remove folder
+```bash
+rm -r /home/folder1/
+```
+# Install a package after GitHub download
 (Before setting up the package, enter the directory where the setup.py is first)
-# Set up a package from GitHub
+```bash
 python setup.py install
-
-# Reset
-pip uninstall package
-python setup.py install
-
 ```
