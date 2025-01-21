@@ -75,7 +75,7 @@ Replace "YourUsername" with your Cornell netID (e.g., sw2395).
 You can find the detailed instruction [here](https://code.visualstudio.com/docs/remote/ssh)
 
 ## SLURM
-Official documentation from BioHPC is available [here](https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs). 
+Official documentation from BioHPC is available [here](https://biohpc.cornell.edu/lab/SLURM-on-demand.htm). 
 
 ### Interactive
 
@@ -137,8 +137,9 @@ python codes/predict.py
 ### Interactive SCREEN Session
 ```bash
 sbatch -N 1 <other_options>  /programs/bin/slurm_screen.sh
-
-# E.g.
+```
+SCREEN documentation can be found [here](https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs)
+```bash
 sbatch -N 1 --ntasks=1 --time=48:00:00 --mem=4G --job-name=screen_job /programs/bin/slurm_screen.sh
 ```
 `/programs/bin/slurm_screen.sh` file is already there, you don't have to change it.
