@@ -138,7 +138,7 @@ python codes/predict.py
 ```bash
 sbatch -N 1 <other_options>  /programs/bin/slurm_screen.sh
 ```
-SCREEN documentation can be found [here](https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs)
+SCREEN documentation can be found [here](https://biohpc.cornell.edu/lab/SLURM-on-demand.htm#interactivejobs).
 ```bash
 sbatch -N 1 --ntasks=1 --time=48:00:00 --mem=4G --job-name=screen_job /programs/bin/slurm_screen.sh
 ```
