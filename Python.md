@@ -7,7 +7,7 @@
 ---
 ## [Python](https://docs.python.org/3/tutorial/index.htmlv)
 
-### Installing Conda
+### Installing [Conda](https://www.anaconda.com/)
 
 By default, when you install Conda on a Linux server, it's typically installed for your user account only. This means:
 
