@@ -115,42 +115,42 @@ Then run the init command `source ~/miniconda3/bin/activate` and `conda init --a
 
 ### Managing package using pip
 
-**Install package using pip**
+1. **Install package using pip**
 ```bash
 python3 -m pip install "SomeProject"
 ```
-**Update packages using pip**
+2. **Update packages using pip**
 ```bash
 python3 -m pip install --upgrade pip setuptools wheel
 ```
-**Uninstall packages using pip**
+3. **Uninstall packages using pip**
 ```bash
 pip uninstall package
 ```
 
 ### Other useful commands
-`pwd` current working directory
-`ls` list every file in the current directory
-`ls -la` list every file and file details (rwg permissions, file size, etc.) in the current directory 
-`cd dir_name` change directory
-`mkdir dir_name` create a folder named "dir_name"
-`cp file file_cp` copy file
-`mv file path` move file to a different directory
-`rm file` delete file
+- `pwd` current working directory
+- `ls` list every file in the current directory
+- `ls -la` list every file and file details (rwg permissions, file size, etc.) in the current directory 
+- `cd dir_name` change directory
+- `mkdir dir_name` create a folder named "dir_name"
+- `cp file file_cp` copy file
+- `mv file path` move file to a different directory
+- `rm file` delete file
 
-**Copy files**
+1. **Copy files**
 ```bash
 cp -r /home/packageA/. /home/cp/packageB/
 ```
-**Remove file**
+2. **Remove file**
 ```bash
 rm /home/file1.tif
 ```
-**Remove folder**
+3. **Remove folder**
 ```bash
 rm -r /home/folder1/
 ```
-**Install a package after GitHub download**
+4. **Install a package after GitHub download**
 (Before setting up the package, enter the directory where the setup.py is first)
 ```bash
 python setup.py install
