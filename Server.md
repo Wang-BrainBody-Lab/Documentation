@@ -183,6 +183,7 @@ Docker containers can be started from within a SLURM job using the docker1 comma
  There is currently no tested way of imposing a time limit on docker containers.
 
 ## CPU status
+Here are a few useful commands to check CPU status on the server:  
 ```bash
 # View real-time system resource usage
 top/htop
