@@ -25,7 +25,7 @@ Before using the tower agent, please download and set up the nextflow first:
    export APPTAINER_TMPDIR=YourPath/temp/tmpdir
    export APPTAINER_CACHEDIR=YourPath/temp/cachedir
    ```
-   **Note:** You may need to manually create the files before running the pipeline.
+   **Note:** You may need to manually create the folders before running the pipeline.
 
 ## Nextflow Tower Agent
 ### [Installation](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")
@@ -56,7 +56,7 @@ Before running the Agent:
 1. Create a [**personal access token**](https://docs.seqera.io/platform/23.1.0/api/overview#authentication) in Tower. Your personal authorization token can be found in the user top-right menu under [Your tokens](https://cloud.seqera.io/tokens).
 2. Create **Tower Agent** credentials in a Tower workspace. See [here](https://docs.seqera.io/platform/23.1.0/credentials/overview) for more instructions.
 3. When you create the credentials you'll get an **Agent Connection ID**. You can use the default ID or enter a custom ID — the connection ID in the workspace credentials must match the ID entered when you run the agent.
-4. After getting the Agent Connection ID, running the tower on server's terminal by following, replace with your real Token and ID.
+4. After getting the Agent Connection ID, running the tower on server's terminal with the following commands, replace with your real Token and ID.
 ```
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID> --work-dir= <YOUR WORK DIRECTORY>
@@ -65,20 +65,10 @@ export TOWER_ACCESS_TOKEN=<YOUR TOKEN>
 
 The agent should always be running in order to accept incoming requests from Tower. We recommend that you use a terminal multiplexer Screen, so that it keeps running even if you close your SSH session.
 
-Input the following command in your terminal, 
+Follow the steps below to start an agent on the server: 
 
-
-To use screen, run the following `screen_job.sh` script using `sbatch screen_job.sh`instead, replace the Token and ID with true value.
-
-After creating `screen_job.sh`, please use `chmod +x screen_job.sh` to make it executable.
-
-You can use `screen -r` or `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
-
-- To see your screen sessions: `screen -ls`
-- To quit any screen session: `screen -S <session ID> -X quit`
-- If you cancel the corresponding SLURM job using `scancel $SLURM_JOB_ID`, the screen session will also be terminated.
-- So once you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
-
+- To use screen, create a `screen_job.sh` file in your home directory with the following scripts, replace the Token and ID with true values.
+  
 ```bash
 #!/bin/bash
 #SBATCH --job-name=screen_job
@@ -117,28 +107,34 @@ done
 echo "Screen session ended. SLURM job complete."
 ```
 
-The nextflow tower agent is online now!
+- After creating `screen_job.sh`, please use `chmod +x screen_job.sh` to make it executable.
+- Execute using `sbatch screen_job.sh`. 
+- The nextflow tower agent is online now!
+- You can use `screen -r` or `srun --jobid $SLURM_JOB_ID --pty screen -r slurm_job_$SLURM_JOB_ID` to attach the SCREEN sessions, and detach from it at any time with `Ctrl-A` followed by `D`.
+- To see your screen sessions: `screen -ls`
+- To quit any screen session: `screen -S <session ID> -X quit`
+- If you cancel the corresponding SLURM job using `scancel $SLURM_JOB_ID`, the screen session will also be terminated.
+- So once you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
 
 ## Run pipeline from Seqera
 ### 1. Create Slurm Workload Manager
 
-
-1. **Setup Slurm Workload Manager:**
+**Setup Slurm Workload Manager:**
     
     - Access your compute environment and set up Slurm with the generated credentials.
 
 ### 2. Add Pipeline in Nextflow Workspace
 
 1. **Access the Launchpad:**
-    
+   
     - Go to your Nextflow workspace and open the launchpad.
-2. **Add a New Pipeline:**
+3. **Add a New Pipeline:**
     
     - Click on `Add Pipeline`.
-3. **Choose Compute Environments:**
+4. **Choose Compute Environments:**
     
     - Select `Compute Environments` you just created.
-4. **Specify the GitHub Path:**
+5. **Specify the GitHub Path:**
     
     - Enter the path to the Multifish pipeline on GitHub.
 
