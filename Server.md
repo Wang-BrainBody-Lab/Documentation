@@ -134,6 +134,7 @@ scancel -u <my_user_name>
 # Execute the script
 python codes/predict.py
 ```
+[Slurm Job Builder](https://docs.rcd.clemson.edu/palmetto/job_management/job_builder/) can be used to customize the scripts above. 
 ### Interactive SCREEN Session
 ```bash
 sbatch -N 1 <other_options>  /programs/bin/slurm_screen.sh
