@@ -70,7 +70,10 @@ Host cbsuwsun.biohpc.cornell.edu
   HostName cbsuwsun.biohpc.cornell.edu
   User YourUsername
 ```
-Replace "YourUsername" with your Cornell netID (e.g., sw2395).
+Replace "YourUsername" with your Cornell netID.
+
+5. Now the server (cbsuwsun.biohpc.cornell.edu) should appear under the SSH section, click the "->" icon and type your password in the Command Palette to connect to the server. 
+6. Once connected, you can access files on the server and run scripts on the server via VSCode.
 
 You can find the detailed instruction [here](https://code.visualstudio.com/docs/remote/ssh)
 
