@@ -114,7 +114,7 @@ echo "Screen session ended. SLURM job complete."
 - To see your screen sessions: `screen -ls`
 - To quit any screen session: `screen -S <session ID> -X quit`
 - If you cancel the corresponding SLURM job using `scancel $SLURM_JOB_ID`, the screen session will also be terminated.
-- So once you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
+- If you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
 
 ## Run pipeline from Seqera
 ### 1. Create Slurm Workload Manager
