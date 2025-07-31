@@ -46,7 +46,7 @@ and use your BioHPC password.
 ### Command Prompt
 For windows users, you can access the server through Command Prompt (cmd) directly using:
 ```
-  SSH cbsuwsun.biohpc.cornell.edu
+  ssh netID@cbsuwsun.biohpc.cornell.edu
 ```
 
 For MacOS and Linux users, you can access the server through the terminal directly using:
