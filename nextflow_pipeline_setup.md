@@ -10,7 +10,7 @@
 - [Run pipeline locally](#run-pipeline-locally)
  
 ## Nextflow
-Before using the tower agent, please download and set up the nextflow first:
+Before using the tower agent, please download and set up the nextflow first. If you would like to use NextFlow on the server, make sure you log onto the bioHPC server first before installing and configuring Nextflow. 
 
 1. Download the [nextflow](https://www.nextflow.io/docs/latest/install.html) by `curl -s https://get.nextflow.io | bash`
 2. Make it executable: `chmod +x nextflow`
@@ -54,7 +54,7 @@ Click the "Quickstart" for more details.
 Before running the Agent:
 
 1. Create a [**personal access token**](https://docs.seqera.io/platform/23.1.0/api/overview#authentication) in Tower. Your personal authorization token can be found in the user top-right menu under [Your tokens](https://cloud.seqera.io/tokens).
-2. Create **Tower Agent** credentials in a Tower workspace. See [here](https://docs.seqera.io/platform/23.1.0/credentials/overview) for more instructions.
+2. Create **Tower Agent** credentials in a Tower workspace. See [here](https://docs.seqera.io/platform/23.1.0/credentials/overview) for more instructions. If running on the bioHPC server, a [SSH credential](https://docs.seqera.io/platform-cloud/credentials/ssh_credentials) needs to be created.  
 3. When you create the credentials you'll get an **Agent Connection ID**. You can use the default ID or enter a custom ID — the connection ID in the workspace credentials must match the ID entered when you run the agent.
 4. After getting the Agent Connection ID, running the tower on server's terminal with the following commands, replace with your real Token and ID.
 ```
