@@ -27,4 +27,4 @@ Use the following command to attach to this session:
 ```
   screen -r
 ```                                                                     
-Now the Seqera (Nextflow) tower agent is online! You can switch to the [seqera webpage] (https://cloud.seqera.io/user/) to set up the EASI-FISH run. 
+Now the Seqera (Nextflow) tower agent is online! You can switch to the [seqera webpage](https://cloud.seqera.io/user/) to set up the EASI-FISH run. 
