@@ -17,7 +17,7 @@ For MacOS and Linux users, you can access the server through the terminal direct
 ```
 **Note:** You must connect to Cornell campus network or use [CU VPN](https://it.cornell.edu/cuvpn#toc-who-can-us-Ikb_bdqc) to use server. Please enter your BioHPC password (may be different from your Cornell account).
                                                                      
-## Step 2 Start a slurm session and bring the Seqera tower agent online 
+## Step 2 Start a interactive SCREEN session and bring the Seqera tower agent online 
 Once logged into your bioHPC account, run the following command: 
 ```
   sbatch nextflow_tower.sh
