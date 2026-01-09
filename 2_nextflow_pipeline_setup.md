@@ -28,7 +28,7 @@ Before using the tower agent, please download and set up the nextflow first. If 
    ```
    **Note:** You may need to manually create the folders before running the pipeline.
 
-## Nextflow Tower Agent
+## Nextflow Tower Agent (Now Sequera Cloud)
 ### [Installation](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")
 
 Click the "Installation" for more details.
