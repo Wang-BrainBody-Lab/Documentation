@@ -120,23 +120,23 @@ echo "Screen session ended. SLURM job complete."
 ## Running pipeline from Seqera
 ### 1. Add Compute Environment
 
-Under COMPUTE -> Compute Environment, click "Add compute enviroment". 
-Choose "Slurm Workload Manager" as platform, add the **Tower Agent** credentials created above. Click "Add" to create the compute environment. 
+Under COMPUTE -> Compute Environment, click `Add compute enviroment`. 
+Choose "Slurm Workload Manager" as platform, add the **Tower Agent** credentials created above. Click `Add` to create the compute environment. 
 
 ### 2. Add Pipeline in Nextflow Workspace
 
 1. **Access the Launchpad:**
     - Go to your Nextflow launchpad.
 2. **Add a New Pipeline:**
-    - Click on `Add Pipeline`.
+    - Click `Add Pipeline`.
 3. **Choose Compute Environments:**
     - Select `Compute Environments` you just created.
 4. **Specify the "Pipeline to Launch":**
     - Enter the path to the Multifish pipeline on GitHub (https://github.com/Neall37/multifish).
     - Check the box for `Pull latest` to ensure you get any updates.
-Click "Add" to add the pipeline. Now you are ready to launch.
+Click `Add` to add the pipeline. Now you are ready to launch.
 
-To launch a run, selecte the pipeline and click "Launch" and configure Pipeline parameters to launch the run. 
+To launch a run, selecte the pipeline and click `Launch` and configure Pipeline parameters to launch the run. 
 
 ### 3. Configure Pipeline Parameters
 
