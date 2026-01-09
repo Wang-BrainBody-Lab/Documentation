@@ -120,8 +120,8 @@ echo "Screen session ended. SLURM job complete."
 ### 1. Create Slurm Workload Manager
 
 **Setup Slurm Workload Manager:**
-    
-    - Access your compute environment and set up Slurm with the generated credentials.
+Access your compute environment and set up Slurm with the generated credentials.
+
 ### 2. Add Pipeline in Nextflow Workspace
 
 1. **Access the Launchpad:**
