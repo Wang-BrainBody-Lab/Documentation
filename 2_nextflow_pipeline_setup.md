@@ -55,16 +55,16 @@ Click the "Quickstart" for more details.
 Before running the Agent:
 
 1. Create a [**personal access token**](https://docs.seqera.io/platform/23.1.0/api/overview#authentication) in Tower. Your personal authorization token can be found in the user top-right menu under [Your tokens](https://cloud.seqera.io/tokens).
-2. Create **Tower Agent** credentials in a Tower workspace. See [here](https://docs.seqera.io/platform/23.1.0/credentials/overview) for more instructions. If running on the bioHPC server, a [SSH credential](https://docs.seqera.io/platform-cloud/credentials/ssh_credentials) needs to be created.  
-3. When you create the credentials you'll get an **Agent Connection ID**. You can use the default ID or enter a custom ID — the connection ID in the workspace credentials must match the ID entered when you run the agent.
-4. After getting the Agent Connection ID, running the tower on server's terminal with the following commands, replace with your real Token and ID.
+2. Create **Tower Agent** credentials in a Tower workspace. See [here](https://docs.seqera.io/platform/23.1.0/credentials/overview) for more instructions.
+   (This step may not be necessary) If running on the bioHPC server, a [SSH credential](https://docs.seqera.io/platform-cloud/credentials/ssh_credentials) needs to be created.  
+4. When you create the credentials you'll get an **Agent Connection ID**. You can use the default ID or enter a custom ID — the connection ID in the workspace credentials must match the ID entered when you run the agent.
+5. After getting the Agent Connection ID, running the tower on server's terminal with the following commands, replace with your real Token and ID.
 ```
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID> --work-dir= <YOUR WORK DIRECTORY>
 ```
-5. Go back to seqera and click `Add` in seqera to create a credential.
 
-The agent should always be running in order to accept incoming requests from Tower. We recommend that you use a terminal multiplexer Screen, so that it keeps running even if you close your SSH session.
+Nextflow Tower Agent should always be running in order to accept incoming requests from Tower. We recommend that you use a terminal multiplexer Screen, so that it keeps running even if you close your SSH session.
 
 Follow the steps below to start an agent on the server: 
 
@@ -117,60 +117,29 @@ echo "Screen session ended. SLURM job complete."
 - If you cancel the corresponding SLURM job using `scancel $SLURM_JOB_ID`, the screen session will also be terminated.
 - If you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
 
-## Run pipeline from Seqera
-### 1. Create Slurm Workload Manager
+## Running pipeline from Seqera
+### 1. Add Compute Environment
 
-**Setup Slurm Workload Manager:**
-Access your compute environment and set up Slurm with the generated credentials.
+Under COMPUTE -> Compute Environment, click "Add compute enviroment". 
+Choose "Slurm Workload Manager" as platform, add the **Tower Agent** credentials created above. Click "Add" to create the compute environment. 
 
 ### 2. Add Pipeline in Nextflow Workspace
 
 1. **Access the Launchpad:**
-   
-    - Go to your Nextflow workspace and open the launchpad.
-3. **Add a New Pipeline:**
-    
+    - Go to your Nextflow launchpad.
+2. **Add a New Pipeline:**
     - Click on `Add Pipeline`.
-4. **Choose Compute Environments:**
-    
+3. **Choose Compute Environments:**
     - Select `Compute Environments` you just created.
-5. **Specify the GitHub Path:**
-    
-    - Enter the path to the Multifish pipeline on GitHub.
-
-### 3. Configure Advanced Options
-
-1. **Check Advanced Options:**
-    
-    - Navigate to the Advanced options section.
-2. **Clear Advanced Options:**
-    
-    - Select all content within Advanced options and press `space` to remove any existing configurations.
-3. **Enable "Pull Latest":**
-    
+4. **Specify the "Pipeline to Launch":**
+    - Enter the path to the Multifish pipeline on GitHub (https://github.com/Neall37/multifish).
     - Check the box for `Pull latest` to ensure you get any updates.
+Click "Add" to add the pipeline. Now you are ready to launch.
 
-### 4. Configure Pipeline Parameters
+To launch a run, selecte the pipeline and click "Launch" and configure Pipeline parameters to launch the run. 
 
-1. **Download Example JSON File:**
-    
-    - Download the `example_slurm.json` file from GitHub, which contains necessary parameters.
-2. **Edit JSON File:**
-    
-    - Open the `example_slurm.json` file and edit the parameters according to your requirements.
-3. **Upload Edited JSON:**
-    
-    - Go to the parameters setting page in Nextflow and upload the edited JSON file.
-4. **Customize Other Parameters:**
-    
-    - After uploading the JSON file, customize any additional parameters as needed.
+### 3. Configure Pipeline Parameters
 
-## Run pipeline locally
-TOWER_WORKSPACE_ID can be found [here](https://cloud.seqera.io/orgs/Wang_Lab/workspaces)
-```
-export TOWER_ACCESS_TOKEN=<YOUR TOKEN>
+There are two ways to configure pipeline parameters. One is to upload params file as a JSON FILE. You can download the `example_slurm.json` file from GitHub, which contains necessary parameters. You can then edit the parameters according to your requirements and upload the edited JSON file. Alternatively, you can enter the parameters directly in the interface. 
 
-export TOWER_WORKSPACE_ID=000000000000000
-```
-Run your Nextflow workflows as usual with the addition of the -with-tower command (refer to https://github.com/Wang-BrainBody-Lab/EASI-FISH).
 
