@@ -13,14 +13,15 @@
 Before using the tower agent, please download and set up the nextflow first. If you would like to use NextFlow on the server, make sure you log onto the bioHPC server first before installing and configuring Nextflow. 
 
 1. Download the [nextflow](https://www.nextflow.io/docs/latest/install.html) by `curl -s https://get.nextflow.io | bash`
-2. Make it executable: `chmod +x nextflow`
-3. Move it into a folder that is in your $PATH, or put the current folder in `~/.bashrc` by:
+   Nextflow requires Java 17 (or later, up to 25) to be installed. If you don’t have a compatible version of Java installed, please see instructions [here](https://www.nextflow.io/docs/latest/install.html) to install.
+3. Make it executable: `chmod +x nextflow`
+4. Move it into a folder that is in your $PATH, or put the current folder in `~/.bashrc` by:
    ```
    nano ~/.bashrc
    export PATH="YourFolderPath:$PATH"
    source ~/.bashrc
    ```
-4. You may also need to add the following to the `~/.bashrc` for Singularity to work.
+5. You may also need to add the following to the `~/.bashrc` for Singularity to work.
    ```
    export APPTAINER_TMPDIR=YourPath/temp/tmpdir
    export APPTAINER_CACHEDIR=YourPath/temp/cachedir
