@@ -21,13 +21,6 @@ Before using the tower agent, please download and set up the nextflow first. If 
    export PATH="YourFolderPath:$PATH"
    source ~/.bashrc
    ```
-5. You may also need to add the following to the `~/.bashrc` for Singularity to work.
-   ```
-   export APPTAINER_TMPDIR=YourPath/temp/tmpdir
-   export APPTAINER_CACHEDIR=YourPath/temp/cachedir
-   ```
-   **Note:** You may need to manually create the folders before running the pipeline.
-
 ## Nextflow Tower Agent (Now Seqera Cloud)
 ### [Installation](https://docs.seqera.io/platform/23.1.0/agent#installation "Direct link to Installation")
 
