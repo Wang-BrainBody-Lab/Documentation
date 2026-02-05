@@ -21,7 +21,7 @@ There are several ways to access the server. For file management, we use FileZil
 
 ### Mount the server (most commonly used)
 
-for Windows 10 (and above) users, you can also choose to mount the server's directory to your local computer. In this way, you can open/visualize server's files locally. How to set up:
+For Windows 10 (and above) users, you can mount the server's directory to your local computer. In this way, you can open/visualize server's files locally. How to set up:
 
 - In `File Explorer` click on `This PC` , select `Computer` at the top left of the window,
 then click on `Map network drive`.
@@ -33,6 +33,17 @@ then click on `Map network drive`.
 - When prompted for your network credentials, enter BioHPC\NetId as your user name,
 and use your BioHPC password.
 - If successful, you should find the new network location under `This PC` .
+
+For macOS users, you can mount the server's directory to your local computer using Finder. How to set up:                                                                                         - Open `Finder`, then press `⌘ + K` (or go to `Go` → `Connect to Server` from the menu bar).                                       
+- Enter the server address in the dialog box:
+```                                                                                  
+  smb://cbsuwsun.biohpc.cornell.edu/storage (apart from storage, you can also mount docker/local_data/workdir)
+```
+- Click `Connect`.
+- When prompted for your network credentials, select `Registered User`, enter your NetId as the user name,
+and use your BioHPC password.
+- If successful, the mounted drive will appear in `Finder` under the `Network` section in the left sidebar, and will also be
+accessible at `/Volumes/` in Terminal.
 
 ### Command Prompt (commonly used)
 For windows users, you can access the server through Command Prompt (cmd) directly using:
