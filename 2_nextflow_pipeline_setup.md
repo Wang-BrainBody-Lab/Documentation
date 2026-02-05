@@ -56,19 +56,19 @@ Before running the Agent:
 
 1. Create a [**personal access token**](https://docs.seqera.io/platform/23.1.0/api/overview#authentication) in Tower. Your personal authorization token can be found in the user top-right menu under [Your tokens](https://cloud.seqera.io/tokens).
 2. Create **Tower Agent** credentials in a Tower workspace. See [here](https://docs.seqera.io/platform/23.1.0/credentials/overview) for more instructions.
-   (This step may not be necessary) If running on the bioHPC server, a [SSH credential](https://docs.seqera.io/platform-cloud/credentials/ssh_credentials) needs to be created.  
-4. When you create the credentials you'll get an **Agent Connection ID**. You can use the default ID or enter a custom ID — the connection ID in the workspace credentials must match the ID entered when you run the agent.
-5. After getting the Agent Connection ID, running the tower on server's terminal with the following commands, replace with your real Token and ID.
+3. When you create the credentials you'll get an **Agent Connection ID**. You can use the default ID or enter a custom ID — the connection ID in the workspace credentials must match the ID entered when you run the agent.
+4. After getting the Agent Connection ID, running the tower on server's terminal with the following commands, replace with your real Token and ID.
 ```
 export TOWER_ACCESS_TOKEN=<YOUR TOKEN>  
 ./tw-agent <YOUR CONNECTION ID> --work-dir= <YOUR WORK DIRECTORY>
 ```
+Note: If running on the `Wang_Lab/multifish` workspace, no need to create Tower Agent, and you can directly use the **Agent Connection ID** in `COMPUTE->Creditials`.
 
 Nextflow Tower Agent should always be running in order to accept incoming requests from Tower. We recommend that you use a terminal multiplexer Screen, so that it keeps running even if you close your SSH session.
 
 Follow the steps below to start an agent on the server: 
 
-- To use screen, create a `screen_job.sh` file in your home directory with the following scripts, replace the Token and ID with true values.
+- To use screen, create a `screen_job.sh` file in your home directory with the following scripts, replace the `TOWER_ACCESS_TOKEN`, `CONNECTION_ID` and `--work-dir` with true values.
   
 ```bash
 #!/bin/bash
@@ -117,7 +117,8 @@ echo "Screen session ended. SLURM job complete."
 - If you cancel the corresponding SLURM job using `scancel $SLURM_JOB_ID`, the screen session will also be terminated.
 - If you don't need screen seesion anymore, please cancel the corresponding SLURM job manually.
 
-## Running pipeline from Seqera
+## Running pipeline from Seqera (if usingn personal 
+
 ### 1. Add Compute Environment
 
 Under COMPUTE -> Compute Environment, click `Add compute enviroment`. 
