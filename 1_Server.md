@@ -1,7 +1,7 @@
 - [Server and file access](#server-and-file-access)
-  * [FileZilla](#filezilla)
   * [Mount the server](#mount-the-server)
   * [Command Prompt](#command-prompt)
+  * [FileZilla](#filezilla)
   * [VSCode](#vscode)
 - [SLURM](#slurm)
   * [Interactive](#interactive)
@@ -19,16 +19,7 @@
 There are several ways to access the server. For file management, we use FileZilla or directly mount the server. For running commands, we use Command Prompt or VSCode. 
 **Note:** You must connect to Cornell campus network or use [CU VPN](https://it.cornell.edu/cuvpn#toc-who-can-us-Ikb_bdqc) to use server.
 
-### FileZilla
-FileZilla is a tool to manage files on the servers, you can use it for common file management, such as move, copy, download or upload.
-
-You can download [Filezilla](https://filezilla-project.org/) for free.
-
-File transfer settings with FileZilla:
-- Host: sftp://cbsuwsun.biohpc.cornell.edu
-- Port: 22
-
-### Mount the server
+### Mount the server (most commonly used)
 
 for Windows 10 (and above) users, you can also choose to mount the server's directory to your local computer. In this way, you can open/visualize server's files locally. How to set up:
 
@@ -43,7 +34,7 @@ then click on `Map network drive`.
 and use your BioHPC password.
 - If successful, you should find the new network location under `This PC` .
 
-### Command Prompt
+### Command Prompt (commonly used)
 For windows users, you can access the server through Command Prompt (cmd) directly using:
 ```
   ssh netID@cbsuwsun.biohpc.cornell.edu
@@ -53,6 +44,15 @@ For MacOS and Linux users, you can access the server through the terminal direct
 ```
   ssh netID@cbsuwsun.biohpc.cornell.edu
 ```
+### FileZilla
+FileZilla is a tool to manage files on the servers, you can use it for common file management, such as move, copy, download or upload.
+
+You can download [Filezilla](https://filezilla-project.org/) for free.
+
+File transfer settings with FileZilla:
+- Host: sftp://cbsuwsun.biohpc.cornell.edu
+- Port: 22
+
 ### VSCode
 Visual Studio Code (VSCode) is one of the most popular IDEs, and it has become a go-to tool for developers working with remote servers via SSH. Apart from common functionality of IDE, here are what it can do for SSH: SSH connectivity, file management, file editing, and extension support.
 
